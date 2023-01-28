@@ -1,6 +1,6 @@
 from tkinter import * 
-#import speech_recognition as sr
-#import pyttsx3
+import speech_recognition as sr
+import pyttsx3
 import webbrowser
 from datetime import datetime
 import subprocess
@@ -47,8 +47,35 @@ def respond(voice_data):
         speak(current_time)
         print(current_time)
         
+    if "search" in voice_data:
+        speak("Opening Google")
+        print("Opening Google")
+        webbrowser.get().open("https://www.google.com/")
+        
+    if "youtube" in voice_data:
+        speak("Opening youtube")
+        print("Opening youtube")
+        webbrowser.get().open("https://www.youtube.com/")
+        
+    if "games" in voice_data:
+        speak("Opening poki")
+        print("Opening poki")
+        webbrowser.get().open("https://poki.com/")
+        
+    if "notepad" in voice_data:
+        speak("Opening Notepad")
+        print("Opening Notepad")
+        subprocess.Popen(["notepad.exe"])
+        
+    if "paint" in voice_data:
+        speak("Opening ms paint")
+        print("Opening Mspaint")
+        subprocess.Popen(["mspaint.exe"])\
+            
+btn=Button(root, text="Activate",bg="red3", fg="white",padx=10,pady=1, font=("Arial",11, "bold"),relief=FLAT, command=r_audio)
+btn.place(relx=0.5,rely=0.5,anchor=CENTER)
     
 
-r_audio()
+
 
 root.mainloop()
